@@ -1,0 +1,14 @@
+
+- name: Provision Testbed
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Print selected image
+      debug:
+        msg: "Deploying string"
+
+    - name: Simulate blade provisioning
+      debug:
+        msg: "Configuring blade {item}"
+      loop: ['string']

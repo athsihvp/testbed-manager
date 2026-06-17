@@ -1,0 +1,15 @@
+body {
+    font-family: Arial;
+    margin: 30px;
+}
+
+select, button {
+    padding: 8px;
+    margin-top: 10px;
+}
+
+pre {
+    background: #111;
+    color: #0f0;
+    padding: 15px;
+}
