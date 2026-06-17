@@ -6,104 +6,29 @@
 </head>
 
 <body>
-<main class="page-shell">
-    <header class="hero">
-        <div>
-            <p class="eyebrow">Testbed Manager</p>
-            <h1>Provision, monitor, and manage blades</h1>
-            <p class="hero-copy">Choose an OS image, assign blades, and track provisioning status in a modern dashboard experience.</p>
-        </div>
-        <div class="hero-stats">
-            <div class="stat-card">
-                <span class="stat-value" id="totalBlades">3</span>
-                <span class="stat-label">Total blades</span>
-            </div>
-            <div class="stat-card">
-                <span class="stat-value" id="activeTasks">0</span>
-                <span class="stat-label">Active tasks</span>
-            </div>
-            <div class="stat-card">
-                <span class="stat-value" id="selectedImageLabel">Ubuntu 22.04</span>
-                <span class="stat-label">Selected image</span>
-            </div>
-        </div>
-    </header>
 
-    <div class="tabs">
-        <button class="tab-button active" data-tab="overview">Overview</button>
-        <button class="tab-button" data-tab="provision">Provision</button>
-        <button class="tab-button" data-tab="status">Blade Status</button>
-    </div>
+<h2>Testbed Provisioning Dashboard</h2>
 
-    <section class="tab-panel active" id="overview">
-        <div class="section-header">
-            <h2>Available OS images</h2>
-            <p>Explore the OS catalog and choose the best image for your testbed.</p>
-        </div>
-        <div class="os-grid" id="overviewOsCards"></div>
-        <div class="section-grid">
-            <div class="card highlight-card">
-                <h3>Provisioning snapshot</h3>
-                <p>Review current blade readiness and progress in the status tab below.</p>
-            </div>
-            <div class="card highlight-card">
-                <h3>Blade readiness</h3>
-                <p id="readyBladesText">No blades have been provisioned yet.</p>
-            </div>
-        </div>
-    </section>
+<div>
+    <label>Select OS Image:</label>
+    <select id="imageSelect"></select>
+</div>
 
-    <section class="tab-panel" id="provision">
-        <div class="section-header">
-            <h2>Provision a testbed</h2>
-            <p>Select an OS image and choose blades to start provisioning.</p>
-        </div>
-        <div class="card card-row">
-            <div class="card-body">
-                <h3>Choose OS image</h3>
-                <div class="os-grid" id="imageCards"></div>
-            </div>
-            <div class="card-body">
-                <h3>Choose blades</h3>
-                <div class="blade-list" id="bladeList">
-                    <label><input type="checkbox" value="blade1"> Blade 1</label>
-                    <label><input type="checkbox" value="blade2"> Blade 2</label>
-                    <label><input type="checkbox" value="blade3"> Blade 3</label>
-                </div>
-            </div>
-        </div>
-        <div class="action-panel">
-            <button id="provisionButton" class="primary-button">Start Provisioning</button>
-            <div class="output-panel">
-                <h4>Response</h4>
-                <pre id="output">Select blades and click Start Provisioning.</pre>
-            </div>
-        </div>
-    </section>
+<div>
+    <label>Select Blades:</label>
+    <br>
+    <input type="checkbox" value="blade1"> Blade 1
+    <input type="checkbox" value="blade2"> Blade 2
+    <input type="checkbox" value="blade3"> Blade 3
+</div>
 
-    <section class="tab-panel" id="status">
-        <div class="section-header">
-            <h2>Blade status</h2>
-            <p>Monitor each blade's state and when it last received an update.</p>
-        </div>
-        <div class="status-cards">
-            <div class="status-card-panel">
-                <span class="status-badge status-idle">Idle</span>
-                <span class="status-badge status-provisioning">Provisioning</span>
-                <span class="status-badge status-ready">Ready</span>
-                <span class="status-badge status-error">Error</span>
-            </div>
-        </div>
-        <div class="status-table-container">
-            <table class="status-table">
-                <thead>
-                    <tr><th>Blade</th><th>Status</th><th>Last Updated</th></tr>
-                </thead>
-                <tbody id="statusRows"></tbody>
-            </table>
-        </div>
-    </section>
-</main>
+<br>
+
+<button onclick="submitRequest()">Provision</button>
+
+<pre id="output"></pre>
+
 <script src="/static/app.js"></script>
+
 </body>
 </html>
